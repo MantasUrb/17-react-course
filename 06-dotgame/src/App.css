@@ -1,0 +1,42 @@
+.App {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(27, 82, 48);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.main-container {
+  width: 1000px;
+  height: 600px;
+  border: solid 1px white;
+  position: relative;
+}
+.slider-horizontal {
+  width: 100%;
+  margin: 5px 0px 0px 0px;
+}
+.slider-vertical {
+  height: 600px;
+  margin: -635px 0px 0px -35px;
+}
+.ball {
+  box-sizing: border-box;
+  border-radius: 15px;
+  width: 15px;
+  height: 15px;
+  background-color: white;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+.basket {
+  border-radius: 20px;
+  box-sizing: border-box;
+  border: 5px solid rgb(40, 158, 236);
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  top: 50%;
+  left: 50%; 
+}
