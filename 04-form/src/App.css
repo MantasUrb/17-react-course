@@ -1,0 +1,72 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #30353f;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #476972;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.form-box {
+  width: 500px;
+  height: 500px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+  border: 1px solid rgb(255, 255, 255);
+  padding: 30px;
+}
+.form-box > textarea {
+  width: 100%;
+}
+.my-button {
+	background-color:#ffffff;
+	border-radius:28px;
+	display:inline-block;
+	cursor:pointer;
+	color:#000000;
+	font-family:Arial;
+	font-size:17px;
+  font-weight: 600;
+	padding:8px 15px;
+	text-decoration:none;
+  border: none;
+  margin: 25px 0px 0px 0px;
+}
+.text-copy {
+  padding: 30px;
+  width: 400px;
+  color: #ffffff;
+  font-size: 18px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
