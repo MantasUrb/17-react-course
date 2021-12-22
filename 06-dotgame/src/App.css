@@ -33,10 +33,18 @@
 .basket {
   border-radius: 20px;
   box-sizing: border-box;
-  border: 3px solid rgb(40, 158, 236);
+  border: 3px solid #229dee;
   width: 35px;
   height: 35px;
   position: absolute;
   top: 50%;
   left: 50%; 
+}
+.score {
+  position: absolute;
+  top: -10%;
+  left: 50%; 
+  color: #229dee;
+  font-size: 45px;
+  font-weight: 800;
 }

@@ -10,8 +10,14 @@ class BallAndBasket extends Component {
         this.state = {
             basketTop: this.randomCoordinatesY(),
             basketLeft: this.randomCoordinatesX(),
+            score: 0,
         }
     }
+
+    add = (function () {
+        let counter = 0;
+        return function () {counter += 1; return counter}
+    })();
 
     alertWhenScore () {
         const basket = document.getElementsByClassName("basket");
@@ -29,6 +35,7 @@ class BallAndBasket extends Component {
                 this.setState({
                     basketTop: this.randomCoordinatesY(),
                     basketLeft: this.randomCoordinatesX(),
+                    score: this.add(),
                 })
             )
         }
@@ -41,6 +48,7 @@ class BallAndBasket extends Component {
     render() {
         return (
             <>
+            <span className="score">{this.state.score}</span>
             <div 
                 className="ball"
                 style={{
