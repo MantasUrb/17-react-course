@@ -18,7 +18,7 @@ function App() {
         .then(result => {
           setWeather(result);
           setQuery("");
-          console.log(result);
+          changeWeather();
         });
   }
 }
@@ -35,50 +35,12 @@ function App() {
     return `${day} ${date} ${month} ${year}`
   }
 
-
-    // function changeWeather (obj) {
-    //   let result = obj.weather[0].main != "undefined" ? weather.weather[0].main.toLowerCase() : "";
-    // }
+  const changeWeather = (string) => (typeof weather.main != "undefined") ? string + " " + weather.weather[0].main.toLowerCase() : string;
   
-
   return (
-    
   <div className="body">
-    
-    <div className={(typeof weather.main != "undefined") 
-        ? ((weather.weather[0].main === "Mist") 
-          ? "bg mist" 
-          : ((weather.weather[0].main === "Clouds") 
-          ? "bg clouds" 
-          : ((weather.weather[0].main === "Clear")
-          ? "bg clear"
-          : ((weather.weather[0].main === "Drizzle")
-          ? "bg drizzle"
-          : ((weather.weather[0].main === "Rain")
-          ? "bg rain"
-          : ((weather.weather[0].main === "Haze")
-          ? "bg haze"
-          : ((weather.weather[0].main === "Fog")
-          ? "bg fog"
-          : "bg"
-          ))))))) : "bg"}></div>
-    <div className={(typeof weather.main != "undefined") 
-        ? ((weather.weather[0].main === "Mist") 
-          ? "app mist" 
-          : ((weather.weather[0].main === "Clouds") 
-          ? "app clouds" 
-          : ((weather.weather[0].main === "Clear")
-          ? "app clear"
-          : ((weather.weather[0].main === "Drizzle")
-          ? "app drizzle"
-          : ((weather.weather[0].main === "Rain")
-          ? "app rain"
-          : ((weather.weather[0].main === "Haze")
-          ? "app haze"
-          : ((weather.weather[0].main === "Fog")
-          ? "app fog"
-          : "app"
-          ))))))) : "app"}>
+    <div className={changeWeather("bg")}></div>
+    <div className={changeWeather("app")}>
       <main>
         <div className="search-box">
           <input 
