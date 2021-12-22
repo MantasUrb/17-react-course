@@ -33,7 +33,7 @@
 .basket {
   border-radius: 20px;
   box-sizing: border-box;
-  border: 5px solid rgb(40, 158, 236);
+  border: 3px solid rgb(40, 158, 236);
   width: 35px;
   height: 35px;
   position: absolute;

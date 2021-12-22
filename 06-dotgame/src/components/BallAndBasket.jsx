@@ -6,23 +6,41 @@ class BallAndBasket extends Component {
         this.state = {
             basketTop: Math.floor(Math.random() * 94) + "%",
             basketLeft: Math.floor(Math.random() * 96.5) + "%",
+            // score: 0,
         }
     }
 
-    newRandomBasketCoordinates = number => {
-        this.setState({
-            basketTop: Math.floor(Math.random() * 100),
-            basketLeft: Math.floor(Math.random() * 100),
-        })
+    alertWhenScore () {
+        const basket = document.getElementsByClassName("basket");
+        const ball = document.getElementsByClassName("ball");
+
+        let basketX = basket[0].offsetLeft;
+        let basketY = basket[0].offsetTop;
+        let ballX = ball[0].offsetLeft;
+        let ballY = ball[0].offsetTop;
+
+        if (((ballX === basketX + 10 || ballX === basketX + 20) && 
+            (ballY === basketY + 15 || ballY === basketY + 21))) {
+            return (
+                alert("SCORE !!! SCORE !!! SCORE !!!")
+                // this.countScore()
+            )
+        }
     }
 
-    getCoorditesOfBasket = basket => {
-        let rect = basket.getBoundingClientRect()
-        let docEl = document.documentElement
-        let rectTop = rect.top + window.pageYOffset - docEl.clientTop
-        let rectLeft = rect.left + window.pageXOffset - docEl.clientLeft
-        console.log(rectTop, rectLeft);
-}
+    // countScore () {
+    //     let newScore = 0;
+    //     if (this.countScore()) {
+    //         newScore += 1
+    //         this.setState({
+    //             score: newScore,
+    //         })
+    //     } return newScore;
+    // }
+
+    componentDidUpdate () {
+        this.alertWhenScore();
+    }
 
     render() {
         return (
@@ -42,7 +60,6 @@ class BallAndBasket extends Component {
                     left: this.state.basketLeft,
                 }}
             >
-
             </div>
             </>
         )
