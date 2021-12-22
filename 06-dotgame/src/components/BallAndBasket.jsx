@@ -1,12 +1,15 @@
 import { Component } from 'react';
 
 class BallAndBasket extends Component {
+
+    randomCoordinatesX = () => Math.floor(Math.random() * 96.5) + "%";
+    randomCoordinatesY = () => Math.floor(Math.random() * 94) + "%";
+
     constructor() {
         super();
         this.state = {
-            basketTop: Math.floor(Math.random() * 94) + "%",
-            basketLeft: Math.floor(Math.random() * 96.5) + "%",
-            // score: 0,
+            basketTop: this.randomCoordinatesY(),
+            basketLeft: this.randomCoordinatesX(),
         }
     }
 
@@ -22,21 +25,14 @@ class BallAndBasket extends Component {
         if (((ballX === basketX + 10 || ballX === basketX + 20) && 
             (ballY === basketY + 15 || ballY === basketY + 21))) {
             return (
-                alert("SCORE !!! SCORE !!! SCORE !!!")
-                // this.countScore()
+                alert("SCORE !!! SCORE !!! SCORE !!!"),
+                this.setState({
+                    basketTop: this.randomCoordinatesY(),
+                    basketLeft: this.randomCoordinatesX(),
+                })
             )
         }
     }
-
-    // countScore () {
-    //     let newScore = 0;
-    //     if (this.countScore()) {
-    //         newScore += 1
-    //         this.setState({
-    //             score: newScore,
-    //         })
-    //     } return newScore;
-    // }
 
     componentDidUpdate () {
         this.alertWhenScore();
