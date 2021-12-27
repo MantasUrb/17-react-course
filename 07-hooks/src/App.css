@@ -11,3 +11,13 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+.box {
+  width: 400px;
+  height: 400px;
+  display: flex;
+  border: 1px solid #ffffff;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 10px;
+}
