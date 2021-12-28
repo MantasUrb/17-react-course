@@ -21,3 +21,23 @@
   flex-direction: column;
   margin: 10px;
 }
+.my-button {
+	background-color:#44c767;
+	border-radius:28px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:8px 15px;
+	text-decoration:none;
+  border: none;
+  margin: 10px 0px 0px 0px;
+}
+.my-button:hover {
+	background-color:#5cbf2a;
+}
+.my-button:active {
+	position:relative;
+	top:1px;
+}
