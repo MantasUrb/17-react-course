@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Effect/>
+        <Effect vardas1={"Michael"} vardas2={"Jessy"}/>
       </header>
     </div>
   );
