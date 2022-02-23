@@ -28,14 +28,10 @@ const Effect = ({vardas1, vardas2}) => {
         setColor("red")
     }
   }, [date]);
-
+  
   useEffect(() => { //<-- works only after state "count" changes
     console.log("Effect Works on COUNT change");
   }, [count]);
-
-  useEffect(() => { //<-- works only after either one of the states changes
-    console.log("Effect Works on DATE or COUNT change");
-  }, [date, count]);
 
   useEffect(() => { //<-- works only after either one of the states changes
     console.log("Effect Works on DATE or COUNT change");
@@ -62,7 +58,7 @@ const Effect = ({vardas1, vardas2}) => {
   useEffect(() => {
     console.log("MOUNT");
     const timerID = setInterval(() => ticTac(), 10000);
-    return () => clearInterval(timerID); // <-- componentWillUnmount
+    return () => clearInterval(timerID); // <-- componentWillUnmount imitation
   }, []);
 
   return (
