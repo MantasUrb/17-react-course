@@ -1,15 +1,25 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 
 const Countdown = () => {
 
     const [firstCounter, setFirstCounter] = useState(10);
     const [secondCounter, setSecondCounter] = useState(10);
     const [thirdCounter, setThirdCounter] = useState(10);
-    
-    const alreadyPressed = useRef(false);
+    const [click, setClick] = useState(false);
+
+    function handleClick () {
+        if (thirdCounter === 0) {
+            setClick(false)
+            setFirstCounter(10)
+            setSecondCounter(10)
+            setThirdCounter(10)
+        } else {
+            setClick(true)
+        }
+    }
 
     useEffect(() => {
-        if (firstCounter > 0) {
+        if (click === true && firstCounter > 0) {
             setTimeout(() => setFirstCounter(firstCounter - 1), 100)
         };
     })
@@ -31,7 +41,11 @@ const Countdown = () => {
             <div className="box">{firstCounter}</div>
             <div className="box">{secondCounter}</div>
             <div className="box">{thirdCounter}</div>
-            <button className="my-button">START COUNTING</button>
+            <button 
+                className="my-button" 
+                onClick={handleClick}
+            >START COUNDOWN
+            </button>
         </>
     )
 }
