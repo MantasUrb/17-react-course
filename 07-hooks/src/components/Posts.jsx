@@ -13,10 +13,6 @@ const Posts = () => {
             setPostsListState(response.data);
         })
 
-
-    
-
-
   }, []);
 
   return (
