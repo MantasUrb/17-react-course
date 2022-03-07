@@ -22,7 +22,7 @@ const Users = () => {
 
   useEffect(() => {
     console.log("request to server");
-    API.get(`users0`)
+    API.get(`users`)
         .then(response => {
             console.log(response.data);
             setUsersListState(response.data);
