@@ -9,24 +9,45 @@ const Gallery = () => {
         console.log("request to server");
         API.get(``)
             .then(response => {
-                console.log(response.data)
+                console.log(response.data);
                 setGalleryState(response.data);
             })
     }, []);
 
+    function imageSort() {
+        const imagesSorted = galleryState.sort(function(a, b) {
+                if (a.author < b.author) {return -1}
+                if (a.author > b.author) {return 1}
+                return 0
+            })
+            return imagesSorted;
+    }
+
+    const handleSort = () => {
+        const image = imageSort()
+        setGalleryState(image.map((image, idx) => 
+                    <div key={idx} className="image">
+                        <a href={image.download_url}>
+                            <img src={image.download_url} alt={image.author}/>
+                        </a>
+                    </div>
+                ))
+        return image;
+    }
+
     return (
         <div className="container hero">
             <div className="row buttons">
-                <button className="my-button">Sort A to Z by Author</button>
-                <button className="my-button">Randomize</button>
-                <button className="my-button">Sort Z to A by Author</button>
+                <button className="my-button"
+                        onClick={handleSort}>
+                            Sort A to Z by Author
+                </button>
             </div>
             <div className="row hero-row">
-                {galleryState
-                    .map(picture =>
-                        <div key={picture.id} className="image">
-                            <a href={picture.download_url}>
-                                <img src={picture.download_url} alt={picture.author}/>
+                {galleryState.map((data, id) =>
+                        <div key={id} className="image">
+                            <a href={data.download_url}>
+                                <img src={data.download_url} alt={data.author}/>
                             </a>
                         </div>
                     )
