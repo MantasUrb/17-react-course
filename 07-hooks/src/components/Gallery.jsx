@@ -9,13 +9,12 @@ const Gallery = () => {
         console.log("request to server");
         API.get(``)
             .then(response => {
-                console.log(response.data);
                 setGalleryState(response.data);
             })
     }, []);
 
     function imageSort() {
-        const imagesSorted = galleryState.sort(function(a, b) {
+        const imagesSorted = [...galleryState].sort(function(a, b) {
                 if (a.author < b.author) {return -1}
                 if (a.author > b.author) {return 1}
                 return 0
@@ -24,14 +23,8 @@ const Gallery = () => {
     }
 
     const handleSort = () => {
-        const image = imageSort()
-        setGalleryState(image.map((image, idx) => 
-                    <div key={idx} className="image">
-                        <a href={image.download_url}>
-                            <img src={image.download_url} alt={image.author}/>
-                        </a>
-                    </div>
-                ))
+        const image = imageSort();
+        setGalleryState(image);
         return image;
     }
 
@@ -44,8 +37,8 @@ const Gallery = () => {
                 </button>
             </div>
             <div className="row hero-row">
-                {galleryState.map((data, id) =>
-                        <div key={id} className="image">
+                {galleryState.map((data) =>
+                        <div key={data.id} className="image">
                             <a href={data.download_url}>
                                 <img src={data.download_url} alt={data.author}/>
                             </a>
@@ -55,7 +48,6 @@ const Gallery = () => {
             </div>
       </div>
     )
-
 }
 
 export default Gallery;
