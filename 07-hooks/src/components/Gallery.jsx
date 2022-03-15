@@ -4,7 +4,6 @@ import API from '../shared/lorempicsum';
 const Gallery = () => {
 
     const [galleryState, setGalleryState] = useState([]);
-    console.log(galleryState);
 
     useEffect(() => {
         console.log("request to server");
