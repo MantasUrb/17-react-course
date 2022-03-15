@@ -63,14 +63,14 @@ li {
   display: flex;
   justify-content: flex-start;
 }
-li .user-id {
+li .post-id {
   display: inline-block;
   width: 30px;
   margin: 0px 5px 0px 0px;
 }
 .post-title,
 .post-id {
-  font-size: 10px;
+  font-size: 20px;
 }
 .image {
   width:100%; 
