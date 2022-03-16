@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import API from '../shared/lorempicsum';
+import GalleryButtons from "./GalleryButtons";
+// import GalleryButtons from "./GalleryButtons";
 
 const Gallery = () => {
 
     const [galleryState, setGalleryState] = useState([]);
-
+    const [loaded, setLoaded] = useState(false);
+    
     useEffect(() => {
         console.log("request to server");
         API.get(``)
@@ -50,33 +53,31 @@ const Gallery = () => {
 
     return (
         <div className="container hero">
-            <div className="row buttons">
-                <button className="my-button"
-                        onClick={handleSortAToZ}>
-                            Sort A to Z by Author
-                </button>
-                <button className="my-button"
-                        onClick={handleRandomize}>
-                            Randomize
-                </button>
-                <button className="my-button"
-                        onClick={handleSortZToA}>
-                            Sort Z to A by Author
-                </button>
 
-            </div>
+            <GalleryButtons
+                handleSortAToZ={handleSortAToZ}
+                handleRandomize={handleRandomize}
+                handleSortZToA={handleSortZToA}
+            />
+
             <div className="row hero-row">
                 {galleryState.map(data =>
                         <div key={data.id} className="image">
+                            {loaded ? null : (<h5>Image Loading...</h5>)}
                             <a href={data.download_url}>
-                                <img src={data.download_url} alt={data.author}/>
+                                <img
+                                    onLoad={() => setLoaded(true)}
+                                    style={loaded ? {} : { visibility: 'hidden' }}
+                                    src={data.download_url} 
+                                    alt={data.author}/>
                             </a>
                         </div>
                     )
                 }
             </div>
+
       </div>
-    )
+        )
 }
 
 export default Gallery;

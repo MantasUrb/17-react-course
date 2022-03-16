@@ -1,22 +1,21 @@
 import './App.css';
 
-import ZooBox from './hocs/withZooBoxCompose';
+// import ZooBox from './hocs/withZooBoxCompose';
 // import withZooBoxError from './hocs/withZooBoxError';
 // import withZooBoxEmpty from './hocs/withZooBoxEmpty';
-// import withZooBoxList from './hocs/withZooBoxList';
 
 // import Message from './components/Message';
 // import Effect from './components/Effect';
 // import Countdown from './components/Countdown';
 // import Users from './components/Users';
 // import Posts from './components/Posts';
-// import Gallery from './components/Gallery';
+import Gallery from './components/Gallery';
 
 
 // INITIATE DIFFERENT DATA
 // const zooList = [{id:30, name:'penguin'}, {id: 38, name:'snake'}];
 // const zooList = [];
-const zooList = null;
+// const zooList = null;
 
 //ONE WAY
 // const ZooBox2 = withZooBoxEmpty(ZooBox);
@@ -36,8 +35,8 @@ function App() {  //<----- MAIN COMPONENT
         {/* <Message/> */}
         {/* <Users/> */}
         {/* <Posts/> */}
-        {/* <Gallery/>  */}
-        <ZooBox zooList={zooList}/>
+        <Gallery/> 
+        {/* <ZooBox zooList={zooList}/> */}
       </header>
     </div>
   );

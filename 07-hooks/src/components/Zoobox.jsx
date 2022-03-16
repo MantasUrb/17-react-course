@@ -1,10 +1,6 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 
 const ZooBox = ({zooList}) => {
-
-    useEffect(() => {
-
-    }, []);
 
     return (
         <div className='bigbox'>
@@ -18,8 +14,7 @@ const ZooBox = ({zooList}) => {
             </ul>
         </div>
     )
-
-
+    
 }
 
 export default ZooBox;
